@@ -7,12 +7,12 @@
 
 > **😂如果您对当前项目有抵触心理，也欢迎您使用这个项目😂👉👉👉[iStoreOS-Native](https://github.com/Kwonelee/iStoreOS-Native)**
 
-> **使用此仓库必须设置机密token，Actions云编译固件时需要用到，通常在仓库设置里面。机密键名为 `GH_TOKEN`（严禁在仓库可视代码中填写，否则后果自负）**
+> **使用此仓库必须设置机密token，Actions云构建固件时需要用到，通常在仓库设置里面。机密键名为 `GH_TOKEN`（严禁在仓库可视代码中填写，否则后果自负）**
 
 # 😅Built-in package plan
 | 插件                     | 状态 | 插件                      | 状态  |
 |:------------------------:|:----:|:------------------------:|:----:|
-| ramfree释放内存          | ✅   | openlist2                | ⏳   |
+| ramfree释放内存          | ✅   | openlist2                | ✅   |
 | FileBrowser文件浏览      | ⏳   | adguardhome              | ✅   |
 | lucky                    | ⏳   | luci-app-amlogic        | ✅   |
 | 其他                     | ⏳   |                         |       |
@@ -60,3 +60,9 @@
 - [istoreos](https://github.com/istoreos/istoreos)
 - [istoreos-builder](https://github.com/wukongdaily/istoreos-builder)
 - [amlogic-s9xxx-openwrt](https://github.com/ophub/amlogic-s9xxx-openwrt)
+
+# ⚠️免责声明
+- 📚 本固件仅供学习研究，严禁用于任何商业用途；
+- 🤝 使用本固件产生的所有后果均由使用者自行承担；
+- ⚠️ 固件仍可能存在缺陷，开发者不提供任何形式的技术支持；
+- 📜 请严格遵守国家网络安全法律法规，合法使用。

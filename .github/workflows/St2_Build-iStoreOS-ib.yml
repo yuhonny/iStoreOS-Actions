@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       openwrt_board:
-        description: "请选择设备型号（默认当下常见设备）"
+        description: "请选择设备型号（默认当前常见设备）"
         required: true
         default: "a311d-oes_s905d_wxy-oect_jp-tvbox_s922x-oes-plus_fine3399_sv-33a6x_dg3399_dg-tn3568_smart-am40_smart-am60_sw799_king3399_panther-x2_firefly-rk3399_s905l3a"
         type: choice
@@ -14,6 +14,7 @@ on:
           - a311d-oes
           - alark35-3500
           - anas3035
+          - aio-3399b
           - beikeyun
           - chainedbox
           - crrc
@@ -56,6 +57,7 @@ on:
           - r68s
           - renegade-rk3328
           - rk3318-box
+          - rock-4d
           - rock5b
           - rock5c
           - ruisen-box
@@ -168,25 +170,31 @@ on:
           - zk-r39a
           - zysj
       openwrt_kernel:
-        description: "请选择内核版本（若未匹配则自动）"
+        description: "请选择内核版本"
         required: true
         default: "6.1.y"
         type: choice
         options:
-          - 5.10.y
           - 5.15.y
           - 6.1.y
           - 6.6.y
           - 6.12.y
+          - 6.6.115
+          - 6.12.47
+      auto_kernel:
+        description: "自动使用最新内核"
+        required: false
+        default: true
+        type: boolean
       openwrt_rootfs:
-        description: "请选择Rootfs通用底包（确保step1有生成）"
+        description: "请选择Rootfs通用底包（先确保St1有生成）"
         required: true
         default: "RELEASE"
         type: choice
         options:
           - RELEASE
       network_settings:
-        description: "请选择初始网络配置（确保step1有生成）"
+        description: "请选择初始网络配置（先确保St1有生成）"
         required: true
         default: "dhcp"
         type: choice
@@ -228,7 +236,7 @@ jobs:
           openwrt_path: ${{ steps.find_rootfs.outputs.file }}
           openwrt_board: ${{ inputs.openwrt_board }}
           openwrt_kernel: ${{ inputs.openwrt_kernel }}
-          auto_kernel: true
+          auto_kernel: ${{ inputs.auto_kernel }}
           kernel_repo: ophub/kernel
           kernel_usage: stable
           builder_name: kwonelee
