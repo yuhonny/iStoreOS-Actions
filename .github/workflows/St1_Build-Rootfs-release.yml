@@ -3,16 +3,18 @@ on:
   workflow_dispatch:
     inputs:
       build_version:
-        description: "请选择构建版本"
+        description: "1、请选择构建版本"
         required: true
-        default: '20251205'
+        default: '20251231'
         type: choice
         options:
+          - '20251231'
+          - '20251226'
           - '20251205'
           - '20251128'
           - '20251121'
       network_settings:
-        description: "请选择初始网络配置"
+        description: "2、请选择初始网络配置"
         required: true
         default: 'dhcp'
         type: choice
@@ -20,16 +22,16 @@ on:
           - 'static'
           - 'dhcp'
       ipaddr:
-        description: '请输入管理IP（选择static时必填）'
+        description: '3、请输入管理IP（选择static时必填）'
         required: true
         default: '192.168.5.88'
       gateway:
-        description: '请输入默认网关（选择static时必填）'
+        description: '4、请输入默认网关（选择static时必填）'
         required: true
         default: '192.168.5.1'
 
 env:
-  VERSION: 24.10.4
+  VERSION: 24.10.5
 
 jobs:
   build:

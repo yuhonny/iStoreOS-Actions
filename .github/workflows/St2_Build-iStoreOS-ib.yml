@@ -4,12 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       openwrt_board:
-        description: "请选择设备型号（默认当前常见设备）"
+        description: "1、请选择设备型号"
         required: true
-        default: "a311d-oes_s905d_wxy-oect_jp-tvbox_s922x-oes-plus_fine3399_sv-33a6x_dg3399_dg-tn3568_smart-am40_smart-am60_sw799_king3399_panther-x2_firefly-rk3399_s905l3a_nsy-g16-plus_nsy-g68-plus_bdy-g18-pro"
+        default: "s905d_s905x3_s912_s922x-ct2000"
         type: choice
         options:
-          - a311d-oes_s905d_wxy-oect_jp-tvbox_s922x-oes-plus_fine3399_sv-33a6x_dg3399_dg-tn3568_smart-am40_smart-am60_sw799_king3399_panther-x2_firefly-rk3399_s905l3a_nsy-g16-plus_nsy-g68-plus_bdy-g18-pro
+          - a311d-oes_s922x-oes-plus_wxy-oect
+          - nsy-g16-plus_nsy-g68-plus_bdy-g18-pro
+          - s905d_s905x3_s912_s922x-ct2000
           - a311d
           - a311d-oes
           - alark35-3500
@@ -30,7 +32,7 @@ on:
           - fine3399
           - firefly-rk3399
           - fmx1-pro
-          - jp-tvbox
+          - gzpeite-p01
           - h28k
           - h66k
           - h68k
@@ -41,6 +43,7 @@ on:
           - hs530r
           - hugsun-x99
           - ipc-r
+          - jp-tvbox
           - king3399
           - kylin3399
           - lckfb-tspi
@@ -172,7 +175,7 @@ on:
           - zk-r39a
           - zysj
       openwrt_kernel:
-        description: "请选择内核版本"
+        description: "2、请选择内核版本"
         required: true
         default: "6.6.y"
         type: choice
@@ -189,14 +192,14 @@ on:
         default: true
         type: boolean
       openwrt_rootfs:
-        description: "请选择Rootfs通用底包（先确保St1有执行）"
+        description: "3、请选择Rootfs通用底包（先确保St1有执行）"
         required: true
         default: "RELEASE"
         type: choice
         options:
           - RELEASE
       network_settings:
-        description: "请选择初始网络配置（先确保St1有执行）"
+        description: "4、请选择初始网络配置（先确保St1有执行）"
         required: true
         default: "dhcp"
         type: choice
@@ -205,7 +208,7 @@ on:
           - dhcp
 
 env:
-  VERSION: 24.10.4
+  VERSION: 24.10.5
 
 jobs:
   build:
